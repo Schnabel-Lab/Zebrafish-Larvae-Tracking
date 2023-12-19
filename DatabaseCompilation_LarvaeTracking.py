@@ -135,10 +135,10 @@ for i in graficoss:
   sns.boxplot(df, x="Treatment", y=i)
   # Add in points to show each observation
   sns.stripplot(df, x="Treatment", y=i, size=4, color=".3")
-  plt.savefig(gra+'/'+i+'_todos.png')
+  plt.savefig(gra+'/'+i+'_all.png')
   plt.clf()
 
-# Merge replicates
+# Merge replicates, use your own labels
 def trat(x):
   if x in ['Ctrl_Exp1_72', 'Ctrl_Exp2_72', 'Ctrl_Exp3_72']:
     return 'Ctrl_72hpf'
@@ -150,7 +150,7 @@ df['Treatment']=df.Treatment_complet.apply(trat)
 
 df.keys()
 # Store Database
-df.to_csv(bases+'/data.csv', index=False)
+df.to_csv(bases+'/Database.csv', index=False)
 
 # Order in the graph
 orden=['Ctrl_72hpf','EtOH_72hpf']
